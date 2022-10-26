@@ -8,11 +8,17 @@ on:
 
 jobs:      
   dev:
-    uses: SebastianGredal/demo-project/.github/workflows/deployment.yml@main
-    with:
-      environment: dev
+    environment: dev
+    runs-on: ubuntu-latest
+    steps:
+      - uses: SebastianGredal/demo-project/.github/workflows/deployment.yml@main
+        with:
+          environment: dev
   prod:
     needs: [dev]
-    uses: SebastianGredal/demo-project/.github/workflows/deployment.yml@main
-    with:
-      environment: prod
+    environment: prod
+    runs-on: ubuntu-latest
+    steps:
+      - uses: SebastianGredal/demo-project/.github/workflows/deployment.yml@main
+        with:
+          environment: prod
