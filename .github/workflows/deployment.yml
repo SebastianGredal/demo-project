@@ -13,7 +13,6 @@ env:
 jobs:      
   deploy:
     name: Deployment to ${{ inputs.environment }} Environment
-    environment: ${{ inputs.environment }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
