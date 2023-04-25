@@ -29,9 +29,6 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-01-01' = {
       }
     }]
   }
-  resource snet 'subnets' existing = [for subnet in subnets: {
-    name: subnet.name
-  }]
 }
 
 resource virtualNetworkDiagnostic 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' = {
@@ -45,7 +42,3 @@ resource virtualNetworkDiagnostic 'Microsoft.Insights/diagnosticSettings@2021-05
 
 output virtualNetworkName string = virtualNetwork.name
 output virtualNetworkId string = virtualNetwork.id
-output subnets array = [for (subnet, i) in subnets: {
-  name: virtualNetwork::snet[i].name
-  subnetId: virtualNetwork::snet[i].id
-}]
