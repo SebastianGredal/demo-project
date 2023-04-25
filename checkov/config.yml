@@ -1,6 +1,0 @@
-skip-check:
-  - CKV_AZURE_1
-quiet: true
-soft-fail: true
-framework: bicep
-#external-checks-git: https://github.com/SebastianGredal/shared-checkov-policies.git//checks/bicep
